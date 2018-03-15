@@ -1,0 +1,9 @@
+.idea
+python/env
+
+target/
+project/target
+.idea/
+project/project/
+/spark-jobs/src/test/scala/eu/ideata/pdd/sparkjobs/SampleTest/IdentifyPddSparkTest.scala
+.DS_Store

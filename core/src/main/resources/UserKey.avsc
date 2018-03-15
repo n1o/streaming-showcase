@@ -1,0 +1,12 @@
+{
+  "namespace": "io.mbarak.showcase",
+  "type": "record",
+  "name": "UserKey",
+  "fields": [
+        {
+            "name": "user",
+            "type": "string"
+
+        }
+      ]
+  }

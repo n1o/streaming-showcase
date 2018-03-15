@@ -1,0 +1,26 @@
+{
+  "namespace": "io.mbarak.showcase",
+  "type": "record",
+  "name": "Event",
+  "fields": [
+        {
+            "name": "userId",
+            "type": "string"
+
+        },
+        {
+            "name": "userValue1",
+            "type": "double"
+
+        },
+        {
+            "name": "userValue2",
+            "type": "long"
+
+        },
+        {
+            "name": "timestamp",
+            "type": "long"
+        }
+      ]
+  }
