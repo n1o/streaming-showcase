@@ -1,0 +1,36 @@
+{
+  "namespace": "io.mbarak.showcase",
+  "type": "record",
+  "name": "UserProfile",
+  "fields": [
+        {
+            "name": "userId",
+            "type": "string"
+
+        },
+        {
+            "name": "userValue1",
+            "type": "double"
+
+        },
+        {
+            "name": "userValue2",
+            "type": "long"
+
+        },
+        {
+            "name": "userValue3",
+            "type": "double"
+
+        },
+        {
+            "name": "userValue4",
+            "type": "string"
+
+        },
+        {
+            "name": "timestamp",
+            "type": "long"
+        }
+      ]
+  }

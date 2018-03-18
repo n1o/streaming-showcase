@@ -14,17 +14,24 @@
 
         },
         {
-            "name": "feature2",
-            "type": "int"
-
-        },
-        {
             "name": "feature3",
             "type": "double"
         },
         {
             "name": "timestamp",
             "type": "long"
+        },
+        {
+            "name": "good",
+            "type": "int"
+        },
+        {
+            "name": "neutral",
+            "type": "int"
+        },
+        {
+            "name": "bad",
+            "type": "int"
         }
       ]
   }

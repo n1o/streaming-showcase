@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Event2 extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 6201905917813372290L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Event2\",\"namespace\":\"io.mbarak.showcase\",\"fields\":[{\"name\":\"userId\",\"type\":\"string\"},{\"name\":\"userValue3\",\"type\":\"double\"},{\"name\":\"userValue4\",\"type\":\"int\"},{\"name\":\"timestamp\",\"type\":\"long\"}]}");
+  private static final long serialVersionUID = -6373570164798025969L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Event2\",\"namespace\":\"io.mbarak.showcase\",\"fields\":[{\"name\":\"userId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"userValue3\",\"type\":\"double\"},{\"name\":\"userValue4\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"timestamp\",\"type\":\"long\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -51,9 +51,9 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
     return DECODER.decode(b);
   }
 
-  @Deprecated public java.lang.CharSequence userId;
+  @Deprecated public java.lang.String userId;
   @Deprecated public double userValue3;
-  @Deprecated public int userValue4;
+  @Deprecated public java.lang.String userValue4;
   @Deprecated public long timestamp;
 
   /**
@@ -70,7 +70,7 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
    * @param userValue4 The new value for userValue4
    * @param timestamp The new value for timestamp
    */
-  public Event2(java.lang.CharSequence userId, java.lang.Double userValue3, java.lang.Integer userValue4, java.lang.Long timestamp) {
+  public Event2(java.lang.String userId, java.lang.Double userValue3, java.lang.String userValue4, java.lang.Long timestamp) {
     this.userId = userId;
     this.userValue3 = userValue3;
     this.userValue4 = userValue4;
@@ -93,9 +93,9 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: userId = (java.lang.CharSequence)value$; break;
+    case 0: userId = (java.lang.String)value$; break;
     case 1: userValue3 = (java.lang.Double)value$; break;
-    case 2: userValue4 = (java.lang.Integer)value$; break;
+    case 2: userValue4 = (java.lang.String)value$; break;
     case 3: timestamp = (java.lang.Long)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
@@ -105,7 +105,7 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
    * Gets the value of the 'userId' field.
    * @return The value of the 'userId' field.
    */
-  public java.lang.CharSequence getUserId() {
+  public java.lang.String getUserId() {
     return userId;
   }
 
@@ -113,7 +113,7 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
    * Sets the value of the 'userId' field.
    * @param value the value to set.
    */
-  public void setUserId(java.lang.CharSequence value) {
+  public void setUserId(java.lang.String value) {
     this.userId = value;
   }
 
@@ -137,7 +137,7 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
    * Gets the value of the 'userValue4' field.
    * @return The value of the 'userValue4' field.
    */
-  public java.lang.Integer getUserValue4() {
+  public java.lang.String getUserValue4() {
     return userValue4;
   }
 
@@ -145,7 +145,7 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
    * Sets the value of the 'userValue4' field.
    * @param value the value to set.
    */
-  public void setUserValue4(java.lang.Integer value) {
+  public void setUserValue4(java.lang.String value) {
     this.userValue4 = value;
   }
 
@@ -197,9 +197,9 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Event2>
     implements org.apache.avro.data.RecordBuilder<Event2> {
 
-    private java.lang.CharSequence userId;
+    private java.lang.String userId;
     private double userValue3;
-    private int userValue4;
+    private java.lang.String userValue4;
     private long timestamp;
 
     /** Creates a new Builder */
@@ -259,7 +259,7 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
       * Gets the value of the 'userId' field.
       * @return The value.
       */
-    public java.lang.CharSequence getUserId() {
+    public java.lang.String getUserId() {
       return userId;
     }
 
@@ -268,7 +268,7 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
       * @param value The value of 'userId'.
       * @return This builder.
       */
-    public io.mbarak.showcase.Event2.Builder setUserId(java.lang.CharSequence value) {
+    public io.mbarak.showcase.Event2.Builder setUserId(java.lang.String value) {
       validate(fields()[0], value);
       this.userId = value;
       fieldSetFlags()[0] = true;
@@ -336,7 +336,7 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
       * Gets the value of the 'userValue4' field.
       * @return The value.
       */
-    public java.lang.Integer getUserValue4() {
+    public java.lang.String getUserValue4() {
       return userValue4;
     }
 
@@ -345,7 +345,7 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
       * @param value The value of 'userValue4'.
       * @return This builder.
       */
-    public io.mbarak.showcase.Event2.Builder setUserValue4(int value) {
+    public io.mbarak.showcase.Event2.Builder setUserValue4(java.lang.String value) {
       validate(fields()[2], value);
       this.userValue4 = value;
       fieldSetFlags()[2] = true;
@@ -366,6 +366,7 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
       * @return This builder.
       */
     public io.mbarak.showcase.Event2.Builder clearUserValue4() {
+      userValue4 = null;
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -413,9 +414,9 @@ public class Event2 extends org.apache.avro.specific.SpecificRecordBase implemen
     public Event2 build() {
       try {
         Event2 record = new Event2();
-        record.userId = fieldSetFlags()[0] ? this.userId : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.userId = fieldSetFlags()[0] ? this.userId : (java.lang.String) defaultValue(fields()[0]);
         record.userValue3 = fieldSetFlags()[1] ? this.userValue3 : (java.lang.Double) defaultValue(fields()[1]);
-        record.userValue4 = fieldSetFlags()[2] ? this.userValue4 : (java.lang.Integer) defaultValue(fields()[2]);
+        record.userValue4 = fieldSetFlags()[2] ? this.userValue4 : (java.lang.String) defaultValue(fields()[2]);
         record.timestamp = fieldSetFlags()[3] ? this.timestamp : (java.lang.Long) defaultValue(fields()[3]);
         return record;
       } catch (java.lang.Exception e) {

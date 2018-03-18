@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -6124013221240401414L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ExtracedFeatures\",\"namespace\":\"io.mbarak.showcase\",\"fields\":[{\"name\":\"userId\",\"type\":\"string\"},{\"name\":\"feature1\",\"type\":\"double\"},{\"name\":\"feature2\",\"type\":\"int\"},{\"name\":\"feature3\",\"type\":\"double\"},{\"name\":\"timestamp\",\"type\":\"long\"}]}");
+  private static final long serialVersionUID = -151421535334912014L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ExtracedFeatures\",\"namespace\":\"io.mbarak.showcase\",\"fields\":[{\"name\":\"userId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"feature1\",\"type\":\"double\"},{\"name\":\"feature3\",\"type\":\"double\"},{\"name\":\"timestamp\",\"type\":\"long\"},{\"name\":\"good\",\"type\":\"int\"},{\"name\":\"neutral\",\"type\":\"int\"},{\"name\":\"bad\",\"type\":\"int\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -51,11 +51,13 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
     return DECODER.decode(b);
   }
 
-  @Deprecated public java.lang.CharSequence userId;
+  @Deprecated public java.lang.String userId;
   @Deprecated public double feature1;
-  @Deprecated public int feature2;
   @Deprecated public double feature3;
   @Deprecated public long timestamp;
+  @Deprecated public int good;
+  @Deprecated public int neutral;
+  @Deprecated public int bad;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -68,16 +70,20 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
    * All-args constructor.
    * @param userId The new value for userId
    * @param feature1 The new value for feature1
-   * @param feature2 The new value for feature2
    * @param feature3 The new value for feature3
    * @param timestamp The new value for timestamp
+   * @param good The new value for good
+   * @param neutral The new value for neutral
+   * @param bad The new value for bad
    */
-  public ExtracedFeatures(java.lang.CharSequence userId, java.lang.Double feature1, java.lang.Integer feature2, java.lang.Double feature3, java.lang.Long timestamp) {
+  public ExtracedFeatures(java.lang.String userId, java.lang.Double feature1, java.lang.Double feature3, java.lang.Long timestamp, java.lang.Integer good, java.lang.Integer neutral, java.lang.Integer bad) {
     this.userId = userId;
     this.feature1 = feature1;
-    this.feature2 = feature2;
     this.feature3 = feature3;
     this.timestamp = timestamp;
+    this.good = good;
+    this.neutral = neutral;
+    this.bad = bad;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
@@ -86,9 +92,11 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
     switch (field$) {
     case 0: return userId;
     case 1: return feature1;
-    case 2: return feature2;
-    case 3: return feature3;
-    case 4: return timestamp;
+    case 2: return feature3;
+    case 3: return timestamp;
+    case 4: return good;
+    case 5: return neutral;
+    case 6: return bad;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -97,11 +105,13 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: userId = (java.lang.CharSequence)value$; break;
+    case 0: userId = (java.lang.String)value$; break;
     case 1: feature1 = (java.lang.Double)value$; break;
-    case 2: feature2 = (java.lang.Integer)value$; break;
-    case 3: feature3 = (java.lang.Double)value$; break;
-    case 4: timestamp = (java.lang.Long)value$; break;
+    case 2: feature3 = (java.lang.Double)value$; break;
+    case 3: timestamp = (java.lang.Long)value$; break;
+    case 4: good = (java.lang.Integer)value$; break;
+    case 5: neutral = (java.lang.Integer)value$; break;
+    case 6: bad = (java.lang.Integer)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -110,7 +120,7 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
    * Gets the value of the 'userId' field.
    * @return The value of the 'userId' field.
    */
-  public java.lang.CharSequence getUserId() {
+  public java.lang.String getUserId() {
     return userId;
   }
 
@@ -118,7 +128,7 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
    * Sets the value of the 'userId' field.
    * @param value the value to set.
    */
-  public void setUserId(java.lang.CharSequence value) {
+  public void setUserId(java.lang.String value) {
     this.userId = value;
   }
 
@@ -136,22 +146,6 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
    */
   public void setFeature1(java.lang.Double value) {
     this.feature1 = value;
-  }
-
-  /**
-   * Gets the value of the 'feature2' field.
-   * @return The value of the 'feature2' field.
-   */
-  public java.lang.Integer getFeature2() {
-    return feature2;
-  }
-
-  /**
-   * Sets the value of the 'feature2' field.
-   * @param value the value to set.
-   */
-  public void setFeature2(java.lang.Integer value) {
-    this.feature2 = value;
   }
 
   /**
@@ -187,6 +181,54 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
   }
 
   /**
+   * Gets the value of the 'good' field.
+   * @return The value of the 'good' field.
+   */
+  public java.lang.Integer getGood() {
+    return good;
+  }
+
+  /**
+   * Sets the value of the 'good' field.
+   * @param value the value to set.
+   */
+  public void setGood(java.lang.Integer value) {
+    this.good = value;
+  }
+
+  /**
+   * Gets the value of the 'neutral' field.
+   * @return The value of the 'neutral' field.
+   */
+  public java.lang.Integer getNeutral() {
+    return neutral;
+  }
+
+  /**
+   * Sets the value of the 'neutral' field.
+   * @param value the value to set.
+   */
+  public void setNeutral(java.lang.Integer value) {
+    this.neutral = value;
+  }
+
+  /**
+   * Gets the value of the 'bad' field.
+   * @return The value of the 'bad' field.
+   */
+  public java.lang.Integer getBad() {
+    return bad;
+  }
+
+  /**
+   * Sets the value of the 'bad' field.
+   * @param value the value to set.
+   */
+  public void setBad(java.lang.Integer value) {
+    this.bad = value;
+  }
+
+  /**
    * Creates a new ExtracedFeatures RecordBuilder.
    * @return A new ExtracedFeatures RecordBuilder
    */
@@ -218,11 +260,13 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<ExtracedFeatures>
     implements org.apache.avro.data.RecordBuilder<ExtracedFeatures> {
 
-    private java.lang.CharSequence userId;
+    private java.lang.String userId;
     private double feature1;
-    private int feature2;
     private double feature3;
     private long timestamp;
+    private int good;
+    private int neutral;
+    private int bad;
 
     /** Creates a new Builder */
     private Builder() {
@@ -243,17 +287,25 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
         this.feature1 = data().deepCopy(fields()[1].schema(), other.feature1);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.feature2)) {
-        this.feature2 = data().deepCopy(fields()[2].schema(), other.feature2);
+      if (isValidValue(fields()[2], other.feature3)) {
+        this.feature3 = data().deepCopy(fields()[2].schema(), other.feature3);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.feature3)) {
-        this.feature3 = data().deepCopy(fields()[3].schema(), other.feature3);
+      if (isValidValue(fields()[3], other.timestamp)) {
+        this.timestamp = data().deepCopy(fields()[3].schema(), other.timestamp);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.timestamp)) {
-        this.timestamp = data().deepCopy(fields()[4].schema(), other.timestamp);
+      if (isValidValue(fields()[4], other.good)) {
+        this.good = data().deepCopy(fields()[4].schema(), other.good);
         fieldSetFlags()[4] = true;
+      }
+      if (isValidValue(fields()[5], other.neutral)) {
+        this.neutral = data().deepCopy(fields()[5].schema(), other.neutral);
+        fieldSetFlags()[5] = true;
+      }
+      if (isValidValue(fields()[6], other.bad)) {
+        this.bad = data().deepCopy(fields()[6].schema(), other.bad);
+        fieldSetFlags()[6] = true;
       }
     }
 
@@ -271,17 +323,25 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
         this.feature1 = data().deepCopy(fields()[1].schema(), other.feature1);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.feature2)) {
-        this.feature2 = data().deepCopy(fields()[2].schema(), other.feature2);
+      if (isValidValue(fields()[2], other.feature3)) {
+        this.feature3 = data().deepCopy(fields()[2].schema(), other.feature3);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.feature3)) {
-        this.feature3 = data().deepCopy(fields()[3].schema(), other.feature3);
+      if (isValidValue(fields()[3], other.timestamp)) {
+        this.timestamp = data().deepCopy(fields()[3].schema(), other.timestamp);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.timestamp)) {
-        this.timestamp = data().deepCopy(fields()[4].schema(), other.timestamp);
+      if (isValidValue(fields()[4], other.good)) {
+        this.good = data().deepCopy(fields()[4].schema(), other.good);
         fieldSetFlags()[4] = true;
+      }
+      if (isValidValue(fields()[5], other.neutral)) {
+        this.neutral = data().deepCopy(fields()[5].schema(), other.neutral);
+        fieldSetFlags()[5] = true;
+      }
+      if (isValidValue(fields()[6], other.bad)) {
+        this.bad = data().deepCopy(fields()[6].schema(), other.bad);
+        fieldSetFlags()[6] = true;
       }
     }
 
@@ -289,7 +349,7 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
       * Gets the value of the 'userId' field.
       * @return The value.
       */
-    public java.lang.CharSequence getUserId() {
+    public java.lang.String getUserId() {
       return userId;
     }
 
@@ -298,7 +358,7 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'userId'.
       * @return This builder.
       */
-    public io.mbarak.showcase.ExtracedFeatures.Builder setUserId(java.lang.CharSequence value) {
+    public io.mbarak.showcase.ExtracedFeatures.Builder setUserId(java.lang.String value) {
       validate(fields()[0], value);
       this.userId = value;
       fieldSetFlags()[0] = true;
@@ -363,44 +423,6 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
     }
 
     /**
-      * Gets the value of the 'feature2' field.
-      * @return The value.
-      */
-    public java.lang.Integer getFeature2() {
-      return feature2;
-    }
-
-    /**
-      * Sets the value of the 'feature2' field.
-      * @param value The value of 'feature2'.
-      * @return This builder.
-      */
-    public io.mbarak.showcase.ExtracedFeatures.Builder setFeature2(int value) {
-      validate(fields()[2], value);
-      this.feature2 = value;
-      fieldSetFlags()[2] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'feature2' field has been set.
-      * @return True if the 'feature2' field has been set, false otherwise.
-      */
-    public boolean hasFeature2() {
-      return fieldSetFlags()[2];
-    }
-
-
-    /**
-      * Clears the value of the 'feature2' field.
-      * @return This builder.
-      */
-    public io.mbarak.showcase.ExtracedFeatures.Builder clearFeature2() {
-      fieldSetFlags()[2] = false;
-      return this;
-    }
-
-    /**
       * Gets the value of the 'feature3' field.
       * @return The value.
       */
@@ -414,9 +436,9 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
       * @return This builder.
       */
     public io.mbarak.showcase.ExtracedFeatures.Builder setFeature3(double value) {
-      validate(fields()[3], value);
+      validate(fields()[2], value);
       this.feature3 = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -425,7 +447,7 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
       * @return True if the 'feature3' field has been set, false otherwise.
       */
     public boolean hasFeature3() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[2];
     }
 
 
@@ -434,7 +456,7 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
       * @return This builder.
       */
     public io.mbarak.showcase.ExtracedFeatures.Builder clearFeature3() {
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -452,9 +474,9 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
       * @return This builder.
       */
     public io.mbarak.showcase.ExtracedFeatures.Builder setTimestamp(long value) {
-      validate(fields()[4], value);
+      validate(fields()[3], value);
       this.timestamp = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -463,7 +485,7 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
       * @return True if the 'timestamp' field has been set, false otherwise.
       */
     public boolean hasTimestamp() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[3];
     }
 
 
@@ -472,7 +494,121 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
       * @return This builder.
       */
     public io.mbarak.showcase.ExtracedFeatures.Builder clearTimestamp() {
+      fieldSetFlags()[3] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'good' field.
+      * @return The value.
+      */
+    public java.lang.Integer getGood() {
+      return good;
+    }
+
+    /**
+      * Sets the value of the 'good' field.
+      * @param value The value of 'good'.
+      * @return This builder.
+      */
+    public io.mbarak.showcase.ExtracedFeatures.Builder setGood(int value) {
+      validate(fields()[4], value);
+      this.good = value;
+      fieldSetFlags()[4] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'good' field has been set.
+      * @return True if the 'good' field has been set, false otherwise.
+      */
+    public boolean hasGood() {
+      return fieldSetFlags()[4];
+    }
+
+
+    /**
+      * Clears the value of the 'good' field.
+      * @return This builder.
+      */
+    public io.mbarak.showcase.ExtracedFeatures.Builder clearGood() {
       fieldSetFlags()[4] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'neutral' field.
+      * @return The value.
+      */
+    public java.lang.Integer getNeutral() {
+      return neutral;
+    }
+
+    /**
+      * Sets the value of the 'neutral' field.
+      * @param value The value of 'neutral'.
+      * @return This builder.
+      */
+    public io.mbarak.showcase.ExtracedFeatures.Builder setNeutral(int value) {
+      validate(fields()[5], value);
+      this.neutral = value;
+      fieldSetFlags()[5] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'neutral' field has been set.
+      * @return True if the 'neutral' field has been set, false otherwise.
+      */
+    public boolean hasNeutral() {
+      return fieldSetFlags()[5];
+    }
+
+
+    /**
+      * Clears the value of the 'neutral' field.
+      * @return This builder.
+      */
+    public io.mbarak.showcase.ExtracedFeatures.Builder clearNeutral() {
+      fieldSetFlags()[5] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'bad' field.
+      * @return The value.
+      */
+    public java.lang.Integer getBad() {
+      return bad;
+    }
+
+    /**
+      * Sets the value of the 'bad' field.
+      * @param value The value of 'bad'.
+      * @return This builder.
+      */
+    public io.mbarak.showcase.ExtracedFeatures.Builder setBad(int value) {
+      validate(fields()[6], value);
+      this.bad = value;
+      fieldSetFlags()[6] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'bad' field has been set.
+      * @return True if the 'bad' field has been set, false otherwise.
+      */
+    public boolean hasBad() {
+      return fieldSetFlags()[6];
+    }
+
+
+    /**
+      * Clears the value of the 'bad' field.
+      * @return This builder.
+      */
+    public io.mbarak.showcase.ExtracedFeatures.Builder clearBad() {
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -481,11 +617,13 @@ public class ExtracedFeatures extends org.apache.avro.specific.SpecificRecordBas
     public ExtracedFeatures build() {
       try {
         ExtracedFeatures record = new ExtracedFeatures();
-        record.userId = fieldSetFlags()[0] ? this.userId : (java.lang.CharSequence) defaultValue(fields()[0]);
+        record.userId = fieldSetFlags()[0] ? this.userId : (java.lang.String) defaultValue(fields()[0]);
         record.feature1 = fieldSetFlags()[1] ? this.feature1 : (java.lang.Double) defaultValue(fields()[1]);
-        record.feature2 = fieldSetFlags()[2] ? this.feature2 : (java.lang.Integer) defaultValue(fields()[2]);
-        record.feature3 = fieldSetFlags()[3] ? this.feature3 : (java.lang.Double) defaultValue(fields()[3]);
-        record.timestamp = fieldSetFlags()[4] ? this.timestamp : (java.lang.Long) defaultValue(fields()[4]);
+        record.feature3 = fieldSetFlags()[2] ? this.feature3 : (java.lang.Double) defaultValue(fields()[2]);
+        record.timestamp = fieldSetFlags()[3] ? this.timestamp : (java.lang.Long) defaultValue(fields()[3]);
+        record.good = fieldSetFlags()[4] ? this.good : (java.lang.Integer) defaultValue(fields()[4]);
+        record.neutral = fieldSetFlags()[5] ? this.neutral : (java.lang.Integer) defaultValue(fields()[5]);
+        record.bad = fieldSetFlags()[6] ? this.bad : (java.lang.Integer) defaultValue(fields()[6]);
         return record;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

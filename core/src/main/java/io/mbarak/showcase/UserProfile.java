@@ -12,23 +12,23 @@ import org.apache.avro.message.SchemaStore;
 
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
-public class Event extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -1403540189655791681L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Event\",\"namespace\":\"io.mbarak.showcase\",\"fields\":[{\"name\":\"userId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"userValue1\",\"type\":\"double\"},{\"name\":\"userValue2\",\"type\":\"long\"},{\"name\":\"timestamp\",\"type\":\"long\"}]}");
+public class UserProfile extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = -5798189589406842232L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UserProfile\",\"namespace\":\"io.mbarak.showcase\",\"fields\":[{\"name\":\"userId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"userValue1\",\"type\":\"double\"},{\"name\":\"userValue2\",\"type\":\"long\"},{\"name\":\"userValue3\",\"type\":\"double\"},{\"name\":\"userValue4\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"timestamp\",\"type\":\"long\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
 
-  private static final BinaryMessageEncoder<Event> ENCODER =
-      new BinaryMessageEncoder<Event>(MODEL$, SCHEMA$);
+  private static final BinaryMessageEncoder<UserProfile> ENCODER =
+      new BinaryMessageEncoder<UserProfile>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<Event> DECODER =
-      new BinaryMessageDecoder<Event>(MODEL$, SCHEMA$);
+  private static final BinaryMessageDecoder<UserProfile> DECODER =
+      new BinaryMessageDecoder<UserProfile>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageDecoder instance used by this class.
    */
-  public static BinaryMessageDecoder<Event> getDecoder() {
+  public static BinaryMessageDecoder<UserProfile> getDecoder() {
     return DECODER;
   }
 
@@ -36,17 +36,17 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
    * Create a new BinaryMessageDecoder instance for this class that uses the specified {@link SchemaStore}.
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    */
-  public static BinaryMessageDecoder<Event> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<Event>(MODEL$, SCHEMA$, resolver);
+  public static BinaryMessageDecoder<UserProfile> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<UserProfile>(MODEL$, SCHEMA$, resolver);
   }
 
-  /** Serializes this Event to a ByteBuffer. */
+  /** Serializes this UserProfile to a ByteBuffer. */
   public java.nio.ByteBuffer toByteBuffer() throws java.io.IOException {
     return ENCODER.encode(this);
   }
 
-  /** Deserializes a Event from a ByteBuffer. */
-  public static Event fromByteBuffer(
+  /** Deserializes a UserProfile from a ByteBuffer. */
+  public static UserProfile fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
@@ -54,6 +54,8 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
   @Deprecated public java.lang.String userId;
   @Deprecated public double userValue1;
   @Deprecated public long userValue2;
+  @Deprecated public double userValue3;
+  @Deprecated public java.lang.String userValue4;
   @Deprecated public long timestamp;
 
   /**
@@ -61,19 +63,23 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public Event() {}
+  public UserProfile() {}
 
   /**
    * All-args constructor.
    * @param userId The new value for userId
    * @param userValue1 The new value for userValue1
    * @param userValue2 The new value for userValue2
+   * @param userValue3 The new value for userValue3
+   * @param userValue4 The new value for userValue4
    * @param timestamp The new value for timestamp
    */
-  public Event(java.lang.String userId, java.lang.Double userValue1, java.lang.Long userValue2, java.lang.Long timestamp) {
+  public UserProfile(java.lang.String userId, java.lang.Double userValue1, java.lang.Long userValue2, java.lang.Double userValue3, java.lang.String userValue4, java.lang.Long timestamp) {
     this.userId = userId;
     this.userValue1 = userValue1;
     this.userValue2 = userValue2;
+    this.userValue3 = userValue3;
+    this.userValue4 = userValue4;
     this.timestamp = timestamp;
   }
 
@@ -84,7 +90,9 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
     case 0: return userId;
     case 1: return userValue1;
     case 2: return userValue2;
-    case 3: return timestamp;
+    case 3: return userValue3;
+    case 4: return userValue4;
+    case 5: return timestamp;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -96,7 +104,9 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
     case 0: userId = (java.lang.String)value$; break;
     case 1: userValue1 = (java.lang.Double)value$; break;
     case 2: userValue2 = (java.lang.Long)value$; break;
-    case 3: timestamp = (java.lang.Long)value$; break;
+    case 3: userValue3 = (java.lang.Double)value$; break;
+    case 4: userValue4 = (java.lang.String)value$; break;
+    case 5: timestamp = (java.lang.Long)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -150,6 +160,38 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
   }
 
   /**
+   * Gets the value of the 'userValue3' field.
+   * @return The value of the 'userValue3' field.
+   */
+  public java.lang.Double getUserValue3() {
+    return userValue3;
+  }
+
+  /**
+   * Sets the value of the 'userValue3' field.
+   * @param value the value to set.
+   */
+  public void setUserValue3(java.lang.Double value) {
+    this.userValue3 = value;
+  }
+
+  /**
+   * Gets the value of the 'userValue4' field.
+   * @return The value of the 'userValue4' field.
+   */
+  public java.lang.String getUserValue4() {
+    return userValue4;
+  }
+
+  /**
+   * Sets the value of the 'userValue4' field.
+   * @param value the value to set.
+   */
+  public void setUserValue4(java.lang.String value) {
+    this.userValue4 = value;
+  }
+
+  /**
    * Gets the value of the 'timestamp' field.
    * @return The value of the 'timestamp' field.
    */
@@ -166,40 +208,42 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
   }
 
   /**
-   * Creates a new Event RecordBuilder.
-   * @return A new Event RecordBuilder
+   * Creates a new UserProfile RecordBuilder.
+   * @return A new UserProfile RecordBuilder
    */
-  public static io.mbarak.showcase.Event.Builder newBuilder() {
-    return new io.mbarak.showcase.Event.Builder();
+  public static io.mbarak.showcase.UserProfile.Builder newBuilder() {
+    return new io.mbarak.showcase.UserProfile.Builder();
   }
 
   /**
-   * Creates a new Event RecordBuilder by copying an existing Builder.
+   * Creates a new UserProfile RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new Event RecordBuilder
+   * @return A new UserProfile RecordBuilder
    */
-  public static io.mbarak.showcase.Event.Builder newBuilder(io.mbarak.showcase.Event.Builder other) {
-    return new io.mbarak.showcase.Event.Builder(other);
+  public static io.mbarak.showcase.UserProfile.Builder newBuilder(io.mbarak.showcase.UserProfile.Builder other) {
+    return new io.mbarak.showcase.UserProfile.Builder(other);
   }
 
   /**
-   * Creates a new Event RecordBuilder by copying an existing Event instance.
+   * Creates a new UserProfile RecordBuilder by copying an existing UserProfile instance.
    * @param other The existing instance to copy.
-   * @return A new Event RecordBuilder
+   * @return A new UserProfile RecordBuilder
    */
-  public static io.mbarak.showcase.Event.Builder newBuilder(io.mbarak.showcase.Event other) {
-    return new io.mbarak.showcase.Event.Builder(other);
+  public static io.mbarak.showcase.UserProfile.Builder newBuilder(io.mbarak.showcase.UserProfile other) {
+    return new io.mbarak.showcase.UserProfile.Builder(other);
   }
 
   /**
-   * RecordBuilder for Event instances.
+   * RecordBuilder for UserProfile instances.
    */
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Event>
-    implements org.apache.avro.data.RecordBuilder<Event> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<UserProfile>
+    implements org.apache.avro.data.RecordBuilder<UserProfile> {
 
     private java.lang.String userId;
     private double userValue1;
     private long userValue2;
+    private double userValue3;
+    private java.lang.String userValue4;
     private long timestamp;
 
     /** Creates a new Builder */
@@ -211,7 +255,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(io.mbarak.showcase.Event.Builder other) {
+    private Builder(io.mbarak.showcase.UserProfile.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.userId)) {
         this.userId = data().deepCopy(fields()[0].schema(), other.userId);
@@ -225,17 +269,25 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
         this.userValue2 = data().deepCopy(fields()[2].schema(), other.userValue2);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.timestamp)) {
-        this.timestamp = data().deepCopy(fields()[3].schema(), other.timestamp);
+      if (isValidValue(fields()[3], other.userValue3)) {
+        this.userValue3 = data().deepCopy(fields()[3].schema(), other.userValue3);
         fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.userValue4)) {
+        this.userValue4 = data().deepCopy(fields()[4].schema(), other.userValue4);
+        fieldSetFlags()[4] = true;
+      }
+      if (isValidValue(fields()[5], other.timestamp)) {
+        this.timestamp = data().deepCopy(fields()[5].schema(), other.timestamp);
+        fieldSetFlags()[5] = true;
       }
     }
 
     /**
-     * Creates a Builder by copying an existing Event instance
+     * Creates a Builder by copying an existing UserProfile instance
      * @param other The existing instance to copy.
      */
-    private Builder(io.mbarak.showcase.Event other) {
+    private Builder(io.mbarak.showcase.UserProfile other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.userId)) {
         this.userId = data().deepCopy(fields()[0].schema(), other.userId);
@@ -249,9 +301,17 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
         this.userValue2 = data().deepCopy(fields()[2].schema(), other.userValue2);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.timestamp)) {
-        this.timestamp = data().deepCopy(fields()[3].schema(), other.timestamp);
+      if (isValidValue(fields()[3], other.userValue3)) {
+        this.userValue3 = data().deepCopy(fields()[3].schema(), other.userValue3);
         fieldSetFlags()[3] = true;
+      }
+      if (isValidValue(fields()[4], other.userValue4)) {
+        this.userValue4 = data().deepCopy(fields()[4].schema(), other.userValue4);
+        fieldSetFlags()[4] = true;
+      }
+      if (isValidValue(fields()[5], other.timestamp)) {
+        this.timestamp = data().deepCopy(fields()[5].schema(), other.timestamp);
+        fieldSetFlags()[5] = true;
       }
     }
 
@@ -268,7 +328,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'userId'.
       * @return This builder.
       */
-    public io.mbarak.showcase.Event.Builder setUserId(java.lang.String value) {
+    public io.mbarak.showcase.UserProfile.Builder setUserId(java.lang.String value) {
       validate(fields()[0], value);
       this.userId = value;
       fieldSetFlags()[0] = true;
@@ -288,7 +348,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'userId' field.
       * @return This builder.
       */
-    public io.mbarak.showcase.Event.Builder clearUserId() {
+    public io.mbarak.showcase.UserProfile.Builder clearUserId() {
       userId = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -307,7 +367,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'userValue1'.
       * @return This builder.
       */
-    public io.mbarak.showcase.Event.Builder setUserValue1(double value) {
+    public io.mbarak.showcase.UserProfile.Builder setUserValue1(double value) {
       validate(fields()[1], value);
       this.userValue1 = value;
       fieldSetFlags()[1] = true;
@@ -327,7 +387,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'userValue1' field.
       * @return This builder.
       */
-    public io.mbarak.showcase.Event.Builder clearUserValue1() {
+    public io.mbarak.showcase.UserProfile.Builder clearUserValue1() {
       fieldSetFlags()[1] = false;
       return this;
     }
@@ -345,7 +405,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'userValue2'.
       * @return This builder.
       */
-    public io.mbarak.showcase.Event.Builder setUserValue2(long value) {
+    public io.mbarak.showcase.UserProfile.Builder setUserValue2(long value) {
       validate(fields()[2], value);
       this.userValue2 = value;
       fieldSetFlags()[2] = true;
@@ -365,8 +425,85 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'userValue2' field.
       * @return This builder.
       */
-    public io.mbarak.showcase.Event.Builder clearUserValue2() {
+    public io.mbarak.showcase.UserProfile.Builder clearUserValue2() {
       fieldSetFlags()[2] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'userValue3' field.
+      * @return The value.
+      */
+    public java.lang.Double getUserValue3() {
+      return userValue3;
+    }
+
+    /**
+      * Sets the value of the 'userValue3' field.
+      * @param value The value of 'userValue3'.
+      * @return This builder.
+      */
+    public io.mbarak.showcase.UserProfile.Builder setUserValue3(double value) {
+      validate(fields()[3], value);
+      this.userValue3 = value;
+      fieldSetFlags()[3] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'userValue3' field has been set.
+      * @return True if the 'userValue3' field has been set, false otherwise.
+      */
+    public boolean hasUserValue3() {
+      return fieldSetFlags()[3];
+    }
+
+
+    /**
+      * Clears the value of the 'userValue3' field.
+      * @return This builder.
+      */
+    public io.mbarak.showcase.UserProfile.Builder clearUserValue3() {
+      fieldSetFlags()[3] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'userValue4' field.
+      * @return The value.
+      */
+    public java.lang.String getUserValue4() {
+      return userValue4;
+    }
+
+    /**
+      * Sets the value of the 'userValue4' field.
+      * @param value The value of 'userValue4'.
+      * @return This builder.
+      */
+    public io.mbarak.showcase.UserProfile.Builder setUserValue4(java.lang.String value) {
+      validate(fields()[4], value);
+      this.userValue4 = value;
+      fieldSetFlags()[4] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'userValue4' field has been set.
+      * @return True if the 'userValue4' field has been set, false otherwise.
+      */
+    public boolean hasUserValue4() {
+      return fieldSetFlags()[4];
+    }
+
+
+    /**
+      * Clears the value of the 'userValue4' field.
+      * @return This builder.
+      */
+    public io.mbarak.showcase.UserProfile.Builder clearUserValue4() {
+      userValue4 = null;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -383,10 +520,10 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * @param value The value of 'timestamp'.
       * @return This builder.
       */
-    public io.mbarak.showcase.Event.Builder setTimestamp(long value) {
-      validate(fields()[3], value);
+    public io.mbarak.showcase.UserProfile.Builder setTimestamp(long value) {
+      validate(fields()[5], value);
       this.timestamp = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[5] = true;
       return this;
     }
 
@@ -395,7 +532,7 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * @return True if the 'timestamp' field has been set, false otherwise.
       */
     public boolean hasTimestamp() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[5];
     }
 
 
@@ -403,20 +540,22 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
       * Clears the value of the 'timestamp' field.
       * @return This builder.
       */
-    public io.mbarak.showcase.Event.Builder clearTimestamp() {
-      fieldSetFlags()[3] = false;
+    public io.mbarak.showcase.UserProfile.Builder clearTimestamp() {
+      fieldSetFlags()[5] = false;
       return this;
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public Event build() {
+    public UserProfile build() {
       try {
-        Event record = new Event();
+        UserProfile record = new UserProfile();
         record.userId = fieldSetFlags()[0] ? this.userId : (java.lang.String) defaultValue(fields()[0]);
         record.userValue1 = fieldSetFlags()[1] ? this.userValue1 : (java.lang.Double) defaultValue(fields()[1]);
         record.userValue2 = fieldSetFlags()[2] ? this.userValue2 : (java.lang.Long) defaultValue(fields()[2]);
-        record.timestamp = fieldSetFlags()[3] ? this.timestamp : (java.lang.Long) defaultValue(fields()[3]);
+        record.userValue3 = fieldSetFlags()[3] ? this.userValue3 : (java.lang.Double) defaultValue(fields()[3]);
+        record.userValue4 = fieldSetFlags()[4] ? this.userValue4 : (java.lang.String) defaultValue(fields()[4]);
+        record.timestamp = fieldSetFlags()[5] ? this.timestamp : (java.lang.Long) defaultValue(fields()[5]);
         return record;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
@@ -425,8 +564,8 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<Event>
-    WRITER$ = (org.apache.avro.io.DatumWriter<Event>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<UserProfile>
+    WRITER$ = (org.apache.avro.io.DatumWriter<UserProfile>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -434,8 +573,8 @@ public class Event extends org.apache.avro.specific.SpecificRecordBase implement
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<Event>
-    READER$ = (org.apache.avro.io.DatumReader<Event>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<UserProfile>
+    READER$ = (org.apache.avro.io.DatumReader<UserProfile>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {
