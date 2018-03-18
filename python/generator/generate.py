@@ -37,7 +37,7 @@ async def generate_event_1(users, producer):
         print("Event 1", size)
         for user in random.sample(users, size):
             user_id, user_event = gen_event(user)
-            producer.produce(topic = "dev-1-avro-event1",  key = {"user": user_id}, value=user_event)
+            producer.produce(topic = "dev-v1-avro-event1",  key = {"user": user_id}, value=user_event)
 
         await asyncio.sleep(5)
 
@@ -65,7 +65,7 @@ async def generate_event_2(users, producer):
 
         for user in random.sample(users, size):
             user_id, user_event = gen_event(user)
-            producer.produce(topic = "dev-1-avro-event2",  key = {"user": user_id}, value=user_event)
+            producer.produce(topic = "dev-v1-avro-event2",  key = {"user": user_id}, value=user_event)
 
         await asyncio.sleep(5)
 
