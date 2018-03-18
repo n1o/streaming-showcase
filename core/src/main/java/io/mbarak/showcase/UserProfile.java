@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class UserProfile extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -5798189589406842232L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UserProfile\",\"namespace\":\"io.mbarak.showcase\",\"fields\":[{\"name\":\"userId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"userValue1\",\"type\":\"double\"},{\"name\":\"userValue2\",\"type\":\"long\"},{\"name\":\"userValue3\",\"type\":\"double\"},{\"name\":\"userValue4\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"timestamp\",\"type\":\"long\"}]}");
+  private static final long serialVersionUID = 1552181699566996751L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UserProfile\",\"namespace\":\"io.mbarak.showcase\",\"fields\":[{\"name\":\"userId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"userValue1\",\"type\":\"double\"},{\"name\":\"userValue2\",\"type\":\"long\"},{\"name\":\"userValue3\",\"type\":\"double\"},{\"name\":\"userValue4\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"score\",\"type\":\"int\"},{\"name\":\"timestamp\",\"type\":\"long\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -56,6 +56,7 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
   @Deprecated public long userValue2;
   @Deprecated public double userValue3;
   @Deprecated public java.lang.String userValue4;
+  @Deprecated public int score;
   @Deprecated public long timestamp;
 
   /**
@@ -72,14 +73,16 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
    * @param userValue2 The new value for userValue2
    * @param userValue3 The new value for userValue3
    * @param userValue4 The new value for userValue4
+   * @param score The new value for score
    * @param timestamp The new value for timestamp
    */
-  public UserProfile(java.lang.String userId, java.lang.Double userValue1, java.lang.Long userValue2, java.lang.Double userValue3, java.lang.String userValue4, java.lang.Long timestamp) {
+  public UserProfile(java.lang.String userId, java.lang.Double userValue1, java.lang.Long userValue2, java.lang.Double userValue3, java.lang.String userValue4, java.lang.Integer score, java.lang.Long timestamp) {
     this.userId = userId;
     this.userValue1 = userValue1;
     this.userValue2 = userValue2;
     this.userValue3 = userValue3;
     this.userValue4 = userValue4;
+    this.score = score;
     this.timestamp = timestamp;
   }
 
@@ -92,7 +95,8 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
     case 2: return userValue2;
     case 3: return userValue3;
     case 4: return userValue4;
-    case 5: return timestamp;
+    case 5: return score;
+    case 6: return timestamp;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -106,7 +110,8 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
     case 2: userValue2 = (java.lang.Long)value$; break;
     case 3: userValue3 = (java.lang.Double)value$; break;
     case 4: userValue4 = (java.lang.String)value$; break;
-    case 5: timestamp = (java.lang.Long)value$; break;
+    case 5: score = (java.lang.Integer)value$; break;
+    case 6: timestamp = (java.lang.Long)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -192,6 +197,22 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
   }
 
   /**
+   * Gets the value of the 'score' field.
+   * @return The value of the 'score' field.
+   */
+  public java.lang.Integer getScore() {
+    return score;
+  }
+
+  /**
+   * Sets the value of the 'score' field.
+   * @param value the value to set.
+   */
+  public void setScore(java.lang.Integer value) {
+    this.score = value;
+  }
+
+  /**
    * Gets the value of the 'timestamp' field.
    * @return The value of the 'timestamp' field.
    */
@@ -244,6 +265,7 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
     private long userValue2;
     private double userValue3;
     private java.lang.String userValue4;
+    private int score;
     private long timestamp;
 
     /** Creates a new Builder */
@@ -277,9 +299,13 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
         this.userValue4 = data().deepCopy(fields()[4].schema(), other.userValue4);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.timestamp)) {
-        this.timestamp = data().deepCopy(fields()[5].schema(), other.timestamp);
+      if (isValidValue(fields()[5], other.score)) {
+        this.score = data().deepCopy(fields()[5].schema(), other.score);
         fieldSetFlags()[5] = true;
+      }
+      if (isValidValue(fields()[6], other.timestamp)) {
+        this.timestamp = data().deepCopy(fields()[6].schema(), other.timestamp);
+        fieldSetFlags()[6] = true;
       }
     }
 
@@ -309,9 +335,13 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
         this.userValue4 = data().deepCopy(fields()[4].schema(), other.userValue4);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.timestamp)) {
-        this.timestamp = data().deepCopy(fields()[5].schema(), other.timestamp);
+      if (isValidValue(fields()[5], other.score)) {
+        this.score = data().deepCopy(fields()[5].schema(), other.score);
         fieldSetFlags()[5] = true;
+      }
+      if (isValidValue(fields()[6], other.timestamp)) {
+        this.timestamp = data().deepCopy(fields()[6].schema(), other.timestamp);
+        fieldSetFlags()[6] = true;
       }
     }
 
@@ -508,6 +538,44 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
+      * Gets the value of the 'score' field.
+      * @return The value.
+      */
+    public java.lang.Integer getScore() {
+      return score;
+    }
+
+    /**
+      * Sets the value of the 'score' field.
+      * @param value The value of 'score'.
+      * @return This builder.
+      */
+    public io.mbarak.showcase.UserProfile.Builder setScore(int value) {
+      validate(fields()[5], value);
+      this.score = value;
+      fieldSetFlags()[5] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'score' field has been set.
+      * @return True if the 'score' field has been set, false otherwise.
+      */
+    public boolean hasScore() {
+      return fieldSetFlags()[5];
+    }
+
+
+    /**
+      * Clears the value of the 'score' field.
+      * @return This builder.
+      */
+    public io.mbarak.showcase.UserProfile.Builder clearScore() {
+      fieldSetFlags()[5] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'timestamp' field.
       * @return The value.
       */
@@ -521,9 +589,9 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
       * @return This builder.
       */
     public io.mbarak.showcase.UserProfile.Builder setTimestamp(long value) {
-      validate(fields()[5], value);
+      validate(fields()[6], value);
       this.timestamp = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[6] = true;
       return this;
     }
 
@@ -532,7 +600,7 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
       * @return True if the 'timestamp' field has been set, false otherwise.
       */
     public boolean hasTimestamp() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[6];
     }
 
 
@@ -541,7 +609,7 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
       * @return This builder.
       */
     public io.mbarak.showcase.UserProfile.Builder clearTimestamp() {
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -555,7 +623,8 @@ public class UserProfile extends org.apache.avro.specific.SpecificRecordBase imp
         record.userValue2 = fieldSetFlags()[2] ? this.userValue2 : (java.lang.Long) defaultValue(fields()[2]);
         record.userValue3 = fieldSetFlags()[3] ? this.userValue3 : (java.lang.Double) defaultValue(fields()[3]);
         record.userValue4 = fieldSetFlags()[4] ? this.userValue4 : (java.lang.String) defaultValue(fields()[4]);
-        record.timestamp = fieldSetFlags()[5] ? this.timestamp : (java.lang.Long) defaultValue(fields()[5]);
+        record.score = fieldSetFlags()[5] ? this.score : (java.lang.Integer) defaultValue(fields()[5]);
+        record.timestamp = fieldSetFlags()[6] ? this.timestamp : (java.lang.Long) defaultValue(fields()[6]);
         return record;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

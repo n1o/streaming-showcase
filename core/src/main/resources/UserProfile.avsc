@@ -29,6 +29,10 @@
 
         },
         {
+            "name": "score",
+            "type": "int"
+        },
+        {
             "name": "timestamp",
             "type": "long"
         }

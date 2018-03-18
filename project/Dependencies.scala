@@ -57,19 +57,4 @@ object Dependencies {
       "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion
     )
   }
-
-  lazy val kafkaStreams = {
-    val confluentVersion = "4.0.0"
-    val kafkaVersion =  "1.0.1"
-    val kafka_streams_scala_version = "0.2.0"
-
-    Seq(
-      "org.apache.kafka" % "kafka-streams" % kafkaVersion,
-      "org.apache.kafka" % "kafka-clients" % kafkaVersion,
-      "io.confluent" % "kafka-streams-avro-serde" % confluentVersion,
-      "io.confluent" % "kafka-avro-serializer" % confluentVersion,
-      "io.confluent" % "kafka-schema-registry-client" % confluentVersion,
-      "com.lightbend" %% "kafka-streams-scala" % kafka_streams_scala_version
-    )
-  }
 }
