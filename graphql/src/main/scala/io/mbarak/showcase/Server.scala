@@ -57,7 +57,7 @@ object Server extends App {
   Http().bindAndHandle(route, "0.0.0.0", sys.props.get("http.port").fold(8080)(_.toInt))
 
   def executeGraphQLQuery(query: Document, op: Option[String], vars: JsObject) =
-    Executor.execute(schema, query, new UserProfileRepo("aa4ab65910e019ce54050585d9e933cd"), variables = vars, operationName = op)
+    Executor.execute(schema, query, new UserProfileRepo("82485dcb89e019e78653fe8bd374ce5d"), variables = vars, operationName = op)
       .map(OK → _)
       .recover {
         case error: QueryAnalysisError ⇒ BadRequest → error.resolveError

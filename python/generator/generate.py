@@ -4,12 +4,11 @@ from datetime import datetime
 from confluent_kafka import avro
 from confluent_kafka.avro import AvroProducer
 import numpy as np
-from scipy.stats import bernoulli, t, norm, multinomial
+from scipy.stats import t, norm, multinomial
 
 event_1_schema = avro.load('/Users/mbarak/projects/github/showcase/core/src/main/resources/Event.avsc')
 key_schema = avro.load('/Users/mbarak/projects/github/showcase/core/src/main/resources/UserKey.avsc')
 event_2_schema = avro.load('/Users/mbarak/projects/github/showcase/core/src/main/resources/Event2.avsc')
-
 
 users = [i for i in range(100)]
 

@@ -12,7 +12,7 @@ import scala.util.Try
 
 case class UserProfileRepo(jobHexa: String) {
 
-  val client = new QueryableStateClient("192.168.8.102", 9069)
+  val client = new QueryableStateClient("192.168.22.100", 9069)
 
   val descriptor: ValueStateDescriptor[UserProfileState] =  new ValueStateDescriptor[UserProfileState](
     "user_profiles",

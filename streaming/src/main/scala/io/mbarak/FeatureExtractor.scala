@@ -1,6 +1,6 @@
 package io.mbarak
 
-import io.mbarak.showcase.{Event, Event2, UserProfile, UserScore}
+import io.mbarak.showcase.{Event, Event2, UserScore}
 import org.apache.flink.streaming.api.scala.{DataStream, StreamExecutionEnvironment}
 import io.mbarak.sink.{UserFeaturesJsonSink, UserFeaturesSink, UserProfileSink}
 import io.mbarak.source.SpecificRecordSource
@@ -10,11 +10,13 @@ import org.apache.flink.contrib.streaming.state.{PredefinedOptions, RocksDBState
 
 /*
 ~/apps/flink-1.3.2/bin/flink run -c io.mbarak.FeatureExtractor streaming/target/scala-2.11/showcase-streaming-assembly-0.1.0-SNAPSHOT.jar -p 1
+
  */
 
 object FeatureExtractor {
 
   def main(args: Array[String]): Unit = {
+
     import io.mbarak.opts.ExtractedFeaturesOpts._
     val env = StreamExecutionEnvironment.getExecutionEnvironment
 
@@ -22,24 +24,29 @@ object FeatureExtractor {
     val event2Source = SpecificRecordSource("dev-v1-avro-event2", "localhost:9092", "http://localhost:8081", "feature_extraction_1" , classOf[Event2])
     val userScore = SpecificRecordSource("dev-v1-avro-user-scores", "localhost:9092", "http://localhost:8081", "feature_extraction_1" , classOf[UserScore])
 
-    val eventsStream = env.addSource(event1Source)
-    val events2Stream = env.addSource(event2Source)
-    val userScoreStream = env.addSource(userScore)
+    val eventsStream: DataStream[UserProfileUpdate] = env.addSource(event1Source)
+      .toUserProfileUpdate
 
-    val userProfile: DataStream[UserProfile] = eventsStream
-        .joinWithEvents2(events2Stream)
-        .joinWithScores(userScoreStream)
+    val events2Stream: DataStream[UserProfileUpdate] = env.addSource(event2Source)
+      .toUserProfileUpdate
+
+    val userScoreStream: DataStream[UserProfileUpdate] = env.addSource(userScore)
+      .toUserProfileUpdate
+
+   val userProfile = eventsStream
+      .union(events2Stream)
+      .union(userScoreStream)
+      .buildUserProfile
 
     val features = userProfile
       .extractFeatures
-
 
     features
       .addKey
       .addSink(UserFeaturesSink("localhost:9092", "http://localhost:8081", "dev-avro-v1-user-features"))
 
       features
-      .map(s => s.toString)
+      .map(_.toString)
       .addSink(UserFeaturesJsonSink("localhost:9092", "dev-json-v1-user-features"))
 
     userProfile
